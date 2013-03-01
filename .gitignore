@@ -1,0 +1,8 @@
+# VIM
+*.swp
+# Various
+vendor
+log/*
+pkg/
+tmp/
+
