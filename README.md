@@ -32,7 +32,7 @@ Just clone this repository :
 
 	#!/bin/sh
 	
-	. /path/to/shell-dancer/something_to_define_later.sh
+	. /path/to/shell-dancer/dancer.sh
 	
 	get '/hi' <<!
 	  echo "Hello world !"

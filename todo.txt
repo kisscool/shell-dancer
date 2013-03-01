@@ -1,13 +1,13 @@
 todo
 ----
-- register routes
+- register routes --> done, may have to change it according to the event-engine
 - logging
-- handle requests with an event engine
-- parse HTTP
+- handle requests with an event engine --> something like the function Dance in Perl-Dancer ?
+- parse HTTP 
 - respond valid HTTP
-- define what is a $path in a *nix way
-- maybe re-organize the sourcecode
-- maybe netcat integration
+- define what is a $path in a *nix way (delegation to a standard tool ? sed? awk?)
+- maybe re-organize the sourcecode --> if it becomes too big
+- maybe netcat integration --> first version as a CGI with inetd ?
 - handle concurent requests
 - what else?
 
