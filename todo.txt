@@ -6,6 +6,7 @@ todo
 - parse HTTP
 - respond valid HTTP
 - define what is a $path in a *nix way
+- maybe re-organize the sourcecode
 - maybe netcat integration
 - handle concurent requests
 - what else?
