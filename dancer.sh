@@ -4,13 +4,22 @@
 # Created         : 2013
 # License         : MIT license
 
+#####################################################################
 # Theory :
+#####################################################################
+
 # A route is the combination of an HTTP method (GET, POST, PUT, DELETE) and a path ('/path/to/resource').
 # Each defined route (throught the use of high level functions get(), post(), put(), delete()) is
 # associated with a dynamic function which contains the business logic of this particular route.
 # Those route-handling functions are named route_$cksum(), where $cksum is a unique identifier.
 # All the registered paths are stored in variables named $ROUTES_$METHOD, where $METHOD is the
 # HTTP method of the associated route.
+
+
+#####################################################################
+# Private (internal) functions
+#####################################################################
+
 
 # This function will output a unique and reproductible checksum from a string,
 # which in our case is a route. We use this unique checksum to name and retrieve
@@ -58,13 +67,15 @@ dancer::add_route() {
     }
   "
   # register the new route
-  #ROUTES_GET="/hi"
-  #echo $ROUTES_GET
-  #export ROUTES_${method}="/hello"
-  #eval 'echo $ROUTES_'$method
+  # this is not as readable as I would like it to be
   export ROUTES_${method}=`eval 'echo $ROUTES_'$method`" ${path}"
-  #ROUTES_${method}=$ROUTES_${method}" ${path}"
 }
+
+
+#####################################################################
+# Public functions
+#####################################################################
+
 
 # This function defines a new route for a GET HTTP request.
 # It uses dancer::add_route() behind the scene.

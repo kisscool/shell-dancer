@@ -1,11 +1,21 @@
-# todo :
-# - register routes
-# - logging
-# - handle requests with an event engine
-# - parse HTTP
-# - respond valid HTTP
-# - define what is a $path in a *nix way
-# - maybe netcat integration
-# - handle concurent requests
-# - what else?
+todo
+----
+- register routes
+- logging
+- handle requests with an event engine
+- parse HTTP
+- respond valid HTTP
+- define what is a $path in a *nix way
+- maybe netcat integration
+- handle concurent requests
+- what else?
 
+
+directory structure
+-------------------
+For now nothing, but potentially :
+- log/
+- lib/
+- doc/
+- scripts/
+ 
