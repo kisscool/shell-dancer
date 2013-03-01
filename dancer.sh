@@ -97,5 +97,62 @@ get() {
 !
 }
 
+# This function defines a new route for a POST HTTP request.
+# It uses dancer::add_route() behind the scene.
+#
+# arguments :
+# - $1 : path
+# - stdin : logic to execute when this route is used
+#
+# example :
+#     post /hi <<!
+#       create something
+#     !
+#
+post() {
+  content=`cat /dev/stdin`;
+  local path=$1;
+  dancer::add_route POST $path <<!
+    $content
+!
+}
 
+# This function defines a new route for a PUT HTTP request.
+# It uses dancer::add_route() behind the scene.
+#
+# arguments :
+# - $1 : path
+# - stdin : logic to execute when this route is used
+#
+# example :
+#     put /hi <<!
+#       update/replace something
+#     !
+#
+put() {
+  content=`cat /dev/stdin`;
+  local path=$1;
+  dancer::add_route PUT $path <<!
+    $content
+!
+}
 
+# This function defines a new route for a DELETE HTTP request.
+# It uses dancer::add_route() behind the scene.
+#
+# arguments :
+# - $1 : path
+# - stdin : logic to execute when this route is used
+#
+# example :
+#     delete /hi <<!
+#       annihilate something
+#     !
+#
+delete() {
+  content=`cat /dev/stdin`;
+  local path=$1;
+  dancer::add_route DELETE $path <<!
+    $content
+!
+}

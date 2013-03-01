@@ -1,18 +1,38 @@
 #!/bin/sh
+# vim: set softtabstop=2 shiftwidth=2 expandtab :
 
 . ./dancer.sh
 
 get /hi <<!
-  echo "hello"
-  echo "world"
+  echo "hello get"
 !
 
-get /test <<!
+get '/test' <<!
   echo "this is a test"
 !
 
-echo "* test :"
+post /hi <<!
+  echo "hello post"
+!
+
+put /hi <<!
+  echo "hello put"
+!
+
+delete /hi <<!
+  echo "hello delete"
+!
+
+echo "* tests :"
 route_`dancer::cksum GET /hi`
+route_`dancer::cksum POST /hi`
+route_`dancer::cksum PUT /hi`
+route_`dancer::cksum DELETE /hi`
+
 echo "* routes :"
-printf "%s\n" "$ROUTES_GET"
+printf "GET : %s\n" "$ROUTES_GET"
+printf "POST : %s\n" "$ROUTES_POST"
+printf "PUT : %s\n" "$ROUTES_PUT"
+printf "DELETE : %s\n" "$ROUTES_DELETE"
+
 
