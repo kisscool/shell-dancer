@@ -29,9 +29,9 @@
 # - $* : strings
 #
 # example :
-#     dancer::cksum GET /hi
+#     dancer_cksum GET /hi
 #
-dancer::cksum() {
+dancer_cksum() {
   local strings="$*"
   printf '%s' "$strings" | cksum | cut -d' ' -f1
 }
@@ -49,15 +49,15 @@ dancer::cksum() {
 # - stdin : logic to execute when this route is used
 #
 # example :
-#     dancer::add_route GET /hi <<!
+#     dancer_add_route GET /hi <<!
 #         echo "hi"
 #     !
 #
-dancer::add_route() {
+dancer_add_route() {
   content=`cat /dev/stdin`;
   local method=$1;
   local path=$2;
-  local cksum=`dancer::cksum ${method} ${path}`
+  local cksum=`dancer_cksum ${method} ${path}`
   # yet again the power of eval comes
   # as our savior for some dynamic
   # function definition
@@ -78,7 +78,7 @@ dancer::add_route() {
 
 
 # This function defines a new route for a GET HTTP request.
-# It uses dancer::add_route() behind the scene.
+# It uses dancer_add_route() behind the scene.
 #
 # arguments :
 # - $1 : path
@@ -92,13 +92,13 @@ dancer::add_route() {
 get() {
   content=`cat /dev/stdin`;
   local path=$1;
-  dancer::add_route GET $path <<!
+  dancer_add_route GET $path <<!
     $content
 !
 }
 
 # This function defines a new route for a POST HTTP request.
-# It uses dancer::add_route() behind the scene.
+# It uses dancer_add_route() behind the scene.
 #
 # arguments :
 # - $1 : path
@@ -112,13 +112,13 @@ get() {
 post() {
   content=`cat /dev/stdin`;
   local path=$1;
-  dancer::add_route POST $path <<!
+  dancer_add_route POST $path <<!
     $content
 !
 }
 
 # This function defines a new route for a PUT HTTP request.
-# It uses dancer::add_route() behind the scene.
+# It uses dancer_add_route() behind the scene.
 #
 # arguments :
 # - $1 : path
@@ -132,13 +132,13 @@ post() {
 put() {
   content=`cat /dev/stdin`;
   local path=$1;
-  dancer::add_route PUT $path <<!
+  dancer_add_route PUT $path <<!
     $content
 !
 }
 
 # This function defines a new route for a DELETE HTTP request.
-# It uses dancer::add_route() behind the scene.
+# It uses dancer_add_route() behind the scene.
 #
 # arguments :
 # - $1 : path
@@ -152,7 +152,7 @@ put() {
 delete() {
   content=`cat /dev/stdin`;
   local path=$1;
-  dancer::add_route DELETE $path <<!
+  dancer_add_route DELETE $path <<!
     $content
 !
 }

@@ -24,10 +24,10 @@ delete /hi <<!
 !
 
 echo "* tests :"
-route_`dancer::cksum GET /hi`
-route_`dancer::cksum POST /hi`
-route_`dancer::cksum PUT /hi`
-route_`dancer::cksum DELETE /hi`
+route_`dancer_cksum GET /hi`
+route_`dancer_cksum POST /hi`
+route_`dancer_cksum PUT /hi`
+route_`dancer_cksum DELETE /hi`
 
 echo "* routes :"
 printf "GET : %s\n" "$ROUTES_GET"
