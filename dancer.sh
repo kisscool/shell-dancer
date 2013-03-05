@@ -66,9 +66,11 @@ dancer_add_route() {
       $content
     }
   "
-  # register the new route
-  # this is not as readable as I would like it to be
-  export ROUTES_${method}=`eval 'echo $ROUTES_'$method`" ${path}"
+
+
+  # this is horrible.
+  # all it does it append $path to $ROUTES_${method} and export it.
+  eval "export ROUTES_${method}=\"\$ROUTES_${method} ${path}\""
 }
 
 
