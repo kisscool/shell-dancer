@@ -38,9 +38,30 @@ Just clone this repository :
 	  echo "Hello world !"
 	!
 
-### Launch
+### Deployment
 
-Todo
+Deployment is possible on any platform which supports CGI.
+
+#### Apache2/mod_cgi
+
+Define a new virtualhost like this:
+
+	<VirtualHost *:81>
+		# The trailing slash after cgi.sh is important!
+		ScriptAlias / /path/to/shell-dancer/cgi.sh/
+
+		ServerName example.com
+		ServerAdmin admin@example.com
+
+		<Directory "/path/to/shell-dancer/">
+			AllowOverride None
+			Options None
+			Order allow,deny
+			Allow from all
+		</Directory>
+	</VirtualHost>
+
+Restart apache, and you're all set.
 
 List of functions
 ---------------
